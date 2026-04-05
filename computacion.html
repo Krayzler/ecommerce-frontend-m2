@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computación - TIENDAPRO</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html" style="text-decoration:none; color:inherit;">TIENDA<span class="pro-text">PRO</span></a>
+            </div>
+            <nav class="nav-categories">
+                <div class="dropdown">
+                    <button class="dropbtn"><i class="fa-solid fa-bars"></i> Categorías</button>
+                    <div class="dropdown-content">
+                        <a href="computacion.html">Computación</a>
+                        <a href="#">Smartphones</a>
+                        <a href="#">Gaming Gear</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Busca lo que necesitas...">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="user-actions">
+                <div class="action-item">
+                    <i class="fa-regular fa-user"></i> <span>Ingresa</span>
+                </div>                
+                
+                <!-- MODIFICA ESTA DIV: Añadimos style y el span del contador -->
+                <div class="action-item cart" style="position: relative;">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-count" class="cart-badge">0</span> <!-- ESTO ES LO NUEVO -->
+                </div>
+            </div>
+                        
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 class="section-title">Equipos de Computación</h2>
+        
+        <div class="product-grid">
+            <!-- Producto 1 -->
+            <div class="product-card">
+                <div class="product-image"><img src="img/pc_page/pc2.png" alt="PC 1"></div>
+                <div class="product-info">
+                    <h3>PC Gamer Pro X1</h3>
+                    <ul class="specs">
+                        <li><i class="fa-solid fa-microchip"></i> Ryzen 5 5800X</li>
+                        <li><i class="fa-solid fa-memory"></i> 16GB RAM DDR4</li>
+                        <li><i class="fa-solid fa-hard-drive"></i> 1TB SSD NVMe</li>
+                    </ul>
+                    <div class="price">$1.250.000</div>
+                    <button class="btn-buy">Añadir al carrito</button>
+                </div>
+            </div>
+            <!-- Producto 2 -->
+            <div class="product-card">
+                <div class="product-image"><img src="img/pc_page/laptop.png" alt="Laptop"></div>
+                <div class="product-info">
+                    <h3>Laptop Creator Z16</h3>
+                    <ul class="specs">
+                        <li><i class="fa-solid fa-microchip"></i> Core i9 13th Gen</li>
+                        <li><i class="fa-solid fa-memory"></i> 32GB RAM DDR5</li>
+                        <li><i class="fa-solid fa-hard-drive"></i> 2TB SSD</li>
+                    </ul>
+                    <div class="price">$2.450.000</div>
+                    <button class="btn-buy">Añadir al carrito</button>
+                </div>
+            </div>
+            <!-- Producto 3 -->
+            <div class="product-card">
+                <div class="product-image"><img src="img/pc_page/pc1.png" alt="PC 3"></div>
+                <div class="product-info">
+                    <h3>Workstation Omega</h3>
+                    <ul class="specs">
+                        <li><i class="fa-solid fa-microchip"></i> Threadripper 3960X</li>
+                        <li><i class="fa-solid fa-memory"></i> 64GB RAM</li>
+                        <li><i class="fa-solid fa-hard-drive"></i> 4TB SSD RAID</li>
+                    </ul>
+                    <div class="price">$4.890.000</div>
+                    <button class="btn-buy">Añadir al carrito</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-section">
+                <h3 class="footer-title">Medios de pago</h3>
+                <div class="payment-logos">
+                    <img src="img/webpay.png" alt="Webpay" class="logo-webpay">
+                    <img src="img/mercadopago.png" alt="MercadoPago" class="logo-mercadopago">
+                    <img src="img/santander.png" alt="Santander" class="logo-santander">
+                    <img src="img/bancoestado.png" alt="BancoEstado" class="logo-bancoestado">
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="footer-bottom">
+                <div class="footer-left">
+                    <div class="security-info">
+                        <div class="ssl-box">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <p>TIENDAPRO protege toda tu información con <strong>Secure Sockets Layer (SSL)</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.twitch.tv/" target="_blank"><i class="fa-brands fa-twitch"></i></a>
+                        <a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                    <div class="store-info">
+                        <p>Calle Ficticia N° 123, Providencia, Santiago de Chile</p>
+                        <p><strong>Horario Atención Tienda y Punto de Retiro:</strong></p>
+                        <p>Lunes a Jueves - 09:00 a 19:00</p>
+                        <p>Viernes - 09:00 a 18:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="whatsapp-btn"><i class="fa-brands fa-whatsapp"></i> ¿Necesitas ayuda?</a>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
