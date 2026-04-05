@@ -1,0 +1,567 @@
+/* ================================================= */
+/* 1. VARIABLES DE COLOR Y ESTILO                    */
+/* ================================================= */
+:root {
+    --color-principal: #00d1ff; /* Cian Eléctrico */
+    --color-hover: #0099ff;     /* Azul para hovers */
+    --fondo-oscuro: #0f172a;    /* Azul medianoche profundo */
+    --fondo-degradado: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --texto-claro: #f8fafc;
+    --borde: #334155;
+}
+
+/* ================================================= */
+/* 2. CONFIGURACIÓN GENERAL Y RESET                 */
+/* ================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #f1f5f9;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ================================================= */
+/* 3. HEADER (Encabezado)                           */
+/* ================================================= */
+.main-header {
+    background-color: var(--fondo-oscuro);
+    color: white;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--color-principal);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Logo TIENDAPRO */
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.pro-text {
+    color: var(--color-principal);
+    text-shadow: 0 0 15px rgba(0, 209, 255, 0.4);
+}
+
+/* ================================================= */
+/* 4. MENÚ DE CATEGORÍAS (DROPDOWN)                 */
+/* ================================================= */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background: #1e293b;
+    border: 1px solid var(--borde);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    z-index: 1001;
+    overflow: visible; /* Cambiado de hidden a visible para que el puente funcione */
+    padding: 10px 0;   /* Espacio interno arriba y abajo */
+    margin-top: 10px;  /* El espacio visual que quieres ver */
+}
+
+/* --- EL PUENTE INVISIBLE (SOLUCIÓN DEFINITIVA) --- */
+.dropdown-content::before {
+    content: "";
+    position: absolute;
+    top: -15px;       /* Sube hasta tocar el botón */
+    left: 0;
+    width: 100%;
+    height: 15px;     /* Cubre el hueco de 10px del margin-top */
+    background: transparent; /* No se ve, pero el mouse lo detecta */
+}
+
+/* Mostrar al pasar el mouse */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 20px;
+    color: #1e293b;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f5f9;
+    color: var(--color-principal);
+    padding-left: 25px;
+}
+
+/* ================================================= */
+/* 5. BARRA DE BÚSQUEDA Y ACCIONES DE USUARIO       */
+/* ================================================= */
+.search-bar {
+    flex-grow: 1;
+    display: flex;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid var(--borde);
+    background: #1e293b;
+    color: white;
+    border-radius: 6px 0 0 6px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: var(--color-principal);
+    border: none;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    color: var(--fondo-oscuro);
+    font-weight: bold;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.action-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.action-item:hover {
+    color: var(--color-principal);
+}
+
+.action-item.cart i {
+    font-size: 20px;
+}
+
+/* ================================================= */
+/* 6. HERO SECTION Y CARRUSEL                       */
+/* ================================================= */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    background: var(--fondo-degradado);
+    min-height: 500px;
+}
+
+.carousel-slide {
+    display: none; /* Se activa vía JS */
+    padding: 80px 0;
+    animation: fadeIn 0.8s ease;
+}
+
+.carousel-slide.active {
+    display: block !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.promo-text h1 {
+    font-size: 52px;
+    background: linear-gradient(to right, #fff, var(--color-principal));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.promo-text p {
+    color: #e2e8f0;         /* Un gris muy claro/blanco azulado */
+    font-size: 18px;          /* Un poco más grande para que sea legible */
+    margin-bottom: 30px;      /* Espacio entre el texto y el botón */
+    font-weight: 400;         /* Peso normal */
+    max-width: 500px;         /* Evita que el texto sea demasiado largo */
+}
+
+/* Para resaltar la parte que está en negrita (strong) */
+.promo-text p strong {
+    color: var(--color-principal); /* El nombre del producto en cian */
+    font-weight: 700;
+}
+
+.btn-primary {
+    background-color: var(--color-principal);
+    color: var(--fondo-oscuro);
+    padding: 15px 35px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.promo-image img {
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+/* Controles del Carrusel */
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+    padding: 20px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.carousel-next {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+/* ================================================= */
+/* 7. FOOTER (Pie de Página)                        */
+/* ================================================= */
+.main-footer {
+    background-color: var(--fondo-oscuro);
+    color: #cbd5e1;
+    padding: 60px 0 30px 0;
+    margin-top: 50px;
+    border-top: 1px solid var(--borde);
+}
+
+.footer-title {
+    font-size: 18px;
+    margin-bottom: 25px;
+    border-left: 4px solid var(--color-principal);
+    padding-left: 15px;
+    color: white;
+    text-transform: uppercase;
+}
+
+/* Sección de Logos de Pago */
+.payment-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+}
+
+.payment-logos img {
+    width: auto;
+    display: block;
+}
+
+/* AJUSTES INDIVIDUALES PARA EQUILIBRIO VISUAL */
+.logo-webpay {
+    height: 32px;
+}
+
+.logo-mercadopago {
+    height: 28px;
+}
+
+.logo-santander {
+    height: 22px;
+}
+
+.logo-bancoestado {
+    height: 24px;
+}
+
+/* Sección SSL y Redes Sociales */
+.footer-divider {
+    border: 0;
+    border-top: 1px solid var(--borde);
+    margin: 40px 0;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.ssl-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 13px;
+}
+
+.ssl-box i {
+    font-size: 28px;
+    color: var(--color-principal);
+}
+
+.social-icons a {
+    color: #94a3b8;
+    font-size: 22px;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--color-principal);
+    transform: translateY(-3px);
+}
+
+/* ================================================= */
+/* 8. ELEMENTOS FLOTANTES Y RESPONSIVE              */
+/* ================================================= */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 9999;
+}
+
+/* Adaptación para Celulares */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .promo-image img {
+        max-width: 100%;
+        margin-top: 40px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .header-content {
+        flex-wrap: wrap;
+    }
+
+    .search-bar {
+        order: 3;
+        width: 100%;
+    }
+}
+
+/* ================================================= */
+/* 9. GRILLA DE PRODUCTOS (Tienda y Categorías)     */
+/* ================================================= */
+.section-title {
+    margin: 40px 0;
+    font-size: 28px;
+    border-bottom: 2px solid var(--color-principal);
+    display: inline-block;
+    padding-bottom: 5px;
+    color: var(--fondo-oscuro);
+}
+
+/* El contenedor principal de los productos */
+.product-grid {
+    display: grid;
+    /* Crea 3 columnas iguales */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+/* La tarjeta individual de cada PC */
+.product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Animación cuando pasas el mouse por el producto */
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-color: var(--color-principal);
+}
+
+.product-image {
+    background: #f8fafc;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Evita que la foto se deforme */
+}
+
+.product-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--fondo-oscuro);
+}
+
+/* Lista de specs (Ryzen, RAM, SSD) */
+.specs {
+    list-style: none;
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Empuja el precio y botón hacia abajo para que todos alineen */
+}
+
+.specs li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.specs li i {
+    color: var(--color-principal);
+    width: 16px;
+    text-align: center;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--fondo-oscuro);
+    margin-bottom: 15px;
+}
+
+.btn-buy {
+    width: 100%;
+    padding: 12px;
+    background: var(--fondo-oscuro);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-buy:hover {
+    background: var(--color-principal);
+    color: var(--fondo-oscuro);
+}
+
+/* Responsive para la grilla */
+@media (max-width: 992px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); } /* 2 columnas en tablets */
+}
+
+@media (max-width: 600px) {
+    .product-grid { grid-template-columns: 1fr; } /* 1 columna en celulares */
+}
+/* Burbuja roja del contador */
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #ff4757;
+    color: white;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+    border: 2px solid #0f172a;
+}
+
+/* Notificación flotante arriba */
+.cart-toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #00d1ff; /* Color cian de tu marca */
+    color: #0f172a;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 9999;
+    transition: all 0.5s ease;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from { top: -50px; opacity: 0; }
+    to { top: 20px; opacity: 1; }
+}
