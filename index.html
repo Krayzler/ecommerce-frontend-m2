@@ -9,37 +9,41 @@
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="container header-content">
-            <div class="logo">TIENDA<span class="pro-text">PRO</span></div>
+<header class="main-header">
+    <div class="container header-content">
+        <div class="logo">TIENDA<span class="pro-text">PRO</span></div>
 
-            <nav class="nav-categories">
-                <div class="dropdown">
-                    <button class="dropbtn"><i class="fa-solid fa-bars"></i> Categorías</button>
-                    <div class="dropdown-content">
-                        <a href="computacion.html">Computación</a>
-                        <a href="#">Smartphones</a>
-                        <a href="#">Gaming Gear</a>
-                    </div>
+        <nav class="nav-categories">
+            <div class="dropdown">
+                <button class="dropbtn"><i class="fa-solid fa-bars"></i> Categorías</button>
+                <div class="dropdown-content">
+                    <a href="computacion.html">Computación</a>
+                    <a href="#">Smartphones</a>
+                    <a href="#">Gaming Gear</a>
                 </div>
-            </nav>
-
-            <div class="search-bar">
-                <input type="text" placeholder="Busca lo que necesitas...">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
+        </nav>
 
-            <div class="user-actions">
-                <div class="action-item"><i class="fa-regular fa-user"></i> <span>Ingresa</span></div>                
-                <div class="action-item cart"><i class="fa-solid fa-cart-shopping"></i></div>
-            </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Busca lo que necesitas...">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <div class="user-actions">
+            <!-- Icono de Usuario -->
+            <div class="action-item">
+                <i class="fa-regular fa-user"></i> <span>Ingresa</span>
+            </div>                
+            
+            <!-- ÚNICO ICONO DE CARRITO (Con el contador) -->
             <div class="action-item cart" style="position: relative;">
                 <i class="fa-solid fa-cart-shopping"></i>
-                <!-- Este es el contador que empezará en 0 -->
                 <span id="cart-count" class="cart-badge">0</span>
-            </div>            
+            </div>
         </div>
-    </header>
+        <!-- Aquí borramos el div extra que estaba antes -->
+    </div>
+</header>
 
     <section class="hero-promo">
         <div class="carousel-container">
